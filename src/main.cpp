@@ -1247,6 +1247,9 @@ unsigned int static GetNextWorkRequired_V2(const CBlockIndex* pindexLast, const 
         static const unsigned int TimeDaySeconds = 24 * 60 * 60; // Uro: 1 day
         int64 PastSecondsMin = TimeDaySeconds * 0.025;
         int64 PastSecondsMax = TimeDaySeconds * 7;
+	if (pindexLast->nHeight + 1 >= 12760) {
+		PastSecondsMin *= 2;
+	}
         uint64 PastBlocksMin = PastSecondsMin / BlocksTargetSpacing;
         uint64 PastBlocksMax = PastSecondsMax / BlocksTargetSpacing;
         
