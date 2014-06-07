@@ -1247,7 +1247,7 @@ unsigned int static GetNextWorkRequired_V2(const CBlockIndex* pindexLast, const 
         static const unsigned int TimeDaySeconds = 24 * 60 * 60; // Uro: 1 day
         int64 PastSecondsMin = TimeDaySeconds * 0.025;
         int64 PastSecondsMax = TimeDaySeconds * 7;
-	if (pindexLast->nHeight + 1 >= 12760) {
+	if (pindexLast->nHeight + 1 >= 12745) {
 		PastSecondsMin *= 2;
 	}
         uint64 PastBlocksMin = PastSecondsMin / BlocksTargetSpacing;
@@ -1263,7 +1263,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
         if (fTestNet) {
 				DiffMode = 1;
         } else {
-			if (pindexLast->nHeight + 1 >= 12760) {
+			if (pindexLast->nHeight + 1 >= 12745) {
 				DiffMode = 2;
 			}
         }
